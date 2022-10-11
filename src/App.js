@@ -4,6 +4,8 @@ import UserHome from "./pages/userHome";
 import CreateNote from "./pages/createNote";
 import ProtectedRoute from "./pages/ProtectedRoute";
 import CreateUser from './pages/createUser';
+import ViewNote from './pages/ViewNote';
+import EditNote from './pages/EditNote';
 import Error from "./pages/Error"
 
 function App() {
@@ -25,6 +27,14 @@ function App() {
 					</ProtectedRoute>
 				}
 				/>
+				<Route path="/viewnote" element={
+						<ViewNote/>
+				}
+				/>
+				<Route path="/editnote" element={
+					<EditNote/>
+			}
+			/>
 			<Route path="*" element={<Error/>}/>
       </Routes>
     </Router>
