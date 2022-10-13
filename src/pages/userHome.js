@@ -4,20 +4,29 @@ import Nav from "../components/Nav";
 import Notes from "../components/Notes";
 const UserHome = () => {
   const [notes, setNotes] = useState([]);
+  const [fetch, setFetch] = useState(true);
+
   useEffect(() => {
     const getNotes = async () => {
-      let result = await axios.get("http://localhost:3500/notes/getnotes");
+      let userToken = localStorage.getItem("user");
+      console.log(userToken);
+      let result = await axios.get("http://localhost:3500/notes/getnotes", {
+        params: { 
+					token: userToken 
+				}
+      });
       console.log(result.data);
       setNotes(result.data);
     };
-    getNotes();
-  }, []);
+    if (fetch) getNotes();
+    setFetch(false);
+  }, [notes]);
   return (
     <>
       <Nav />
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center bg-gradient-to-r from-slate-100 h-screen">
         {notes.map((note) => {
-          return <Notes note={note} />;
+          return <Notes note={note} setFetch={setFetch} />;
         })}
       </div>
     </>

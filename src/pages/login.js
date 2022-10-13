@@ -24,7 +24,6 @@ const Login = () => {
 			console.log(error);
 			navigate("/")
 		}
-
   };
 
   const verifyToken = async () => {
@@ -37,7 +36,7 @@ const Login = () => {
   };
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center bg-gradient-to-r from-slate-100 h-screen">
       <h3 className="text-stone-800 text-3xl m-3">Login</h3>
       <div className="border-zinc-800 border-2 rounded-lg m-3">
         <form className="flex flex-col items-center py-2 px-5">
