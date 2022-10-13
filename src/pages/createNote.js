@@ -4,7 +4,6 @@ import axios from "axios";
 const CreateNote = () => {
   const navigate = useNavigate();
   const { state } = useLocation();
-  console.log(state);
 
   const [note, setNote] = useState({
     notetitle: "",
@@ -17,25 +16,18 @@ const CreateNote = () => {
 		setNote({ ...note, token: userToken });
 	}, []);
 
-	
-
   const handleSubmit = async (event) => {
     try {
       event.preventDefault();
-			console.log("token " + note.token);
 
-      console.log(
-        "front end note " + note.notetitle + note.notebody + note.token
-      );
       const result = await axios.post(
         "http://localhost:3500/notes/create",
         note
       );
-      console.log(result);
       navigate("/home");
     } catch (error) {
       console.log(error);
-      //navigate("/home")
+      navigate("/home");
     }
   };
 

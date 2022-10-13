@@ -14,7 +14,6 @@ const UserHome = () => {
 					token: userToken 
 				}
       });
-      console.log(result.data);
       setNotes(result.data);
     };
     if (fetch) getNotes();

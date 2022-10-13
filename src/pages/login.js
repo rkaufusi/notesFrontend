@@ -7,6 +7,7 @@ const Login = () => {
     email: "",
     password: "",
   });
+	
   const handleClick = () => {
     navigate("./createuser");
   };
@@ -15,10 +16,8 @@ const Login = () => {
 			event.preventDefault();
 			const result = await axios.post("http://localhost:3500/login", user);
 			let { accessToken } = result.data;
-			console.log(accessToken);
 			localStorage.setItem("user", accessToken);
 			const isValidUser = await verifyToken();
-			console.log(isValidUser)
 			if (isValidUser) navigate("/home");
 		} catch(error) {
 			console.log(error);
@@ -31,7 +30,6 @@ const Login = () => {
     const result = await axios.post("http://localhost:3500/verify", {
       userToken: userToken,
     });
-    console.log(result.data);
     return result.data;
   };
 

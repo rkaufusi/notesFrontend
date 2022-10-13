@@ -15,11 +15,10 @@ const EditNote = () => {
     try {
       event.preventDefault();
       const result = await axios.put("http://localhost:3500/notes/edit", note);
-      console.log(result);
       navigate("/home");
     } catch (error) {
-      console.log(error);
-      //navigate("/home")
+			console.log(error);
+      navigate("/home")
     }
   };
 

@@ -13,11 +13,9 @@ const Notes = ({ note }) => {
 
   const handleDelete = async () => {
     const { noteid } = note;
-    console.log(noteid);
     await axios.delete("http://localhost:3500/notes/delete", {
       data: { noteid: noteid },
     });
-    console.log("deleted");
     window.location.reload(false);
   };
   return (
