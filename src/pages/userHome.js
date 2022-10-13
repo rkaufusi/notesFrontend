@@ -9,7 +9,6 @@ const UserHome = () => {
   useEffect(() => {
     const getNotes = async () => {
       let userToken = localStorage.getItem("user");
-      console.log(userToken);
       let result = await axios.get("http://localhost:3500/notes/getnotes", {
         params: { 
 					token: userToken 
