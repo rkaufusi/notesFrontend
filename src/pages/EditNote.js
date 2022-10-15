@@ -33,13 +33,13 @@ const EditNote = () => {
             className="flex justify-center text-2xl border-b border-stone-800"
             value={note.notetitle}
           ></input>
-          <input
+          <textarea
             onChange={(event) =>
               setNote({ ...note, notebody: event.target.value })
             }
             className="text-lg border-b border-stone-800"
             value={note.notebody}
-          ></input>
+          ></textarea>
           <button
             onClick={(event) => handleSubmit(event)}
             className="px-3 m-1 mr-2 text-lg bg-sky-600 rounded-md text-white max-w-fit"

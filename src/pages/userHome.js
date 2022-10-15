@@ -20,14 +20,14 @@ const UserHome = () => {
     setFetch(false);
   }, [notes]);
   return (
-    <>
+    <div className="bg-gradient-to-r from-slate-400 h-screen">
       <Nav />
       <div className="flex flex-col items-center bg-gradient-to-r from-slate-100 h-screen">
         {notes.map((note) => {
           return <Notes note={note} setFetch={setFetch} />;
         })}
       </div>
-    </>
+    </div>
   );
 };
 
