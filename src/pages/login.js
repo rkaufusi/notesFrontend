@@ -34,34 +34,38 @@ const Login = () => {
   };
 
   return (
-    <div className="flex flex-col items-center bg-gradient-to-r from-slate-100 h-screen">
-      <h3 className="text-stone-800 text-3xl m-3">Login</h3>
+    <div className="flex flex-col items-center bg-gradient-to-r from-slate-400 h-screen">
+      <h3 className="text-stone-800 text-5xl m-3 p-3">Login</h3>
       <div className="border-zinc-800 border-2 rounded-lg m-3">
         <form className="flex flex-col items-center py-2 px-5">
-          <label className="text-xl">Email:</label>
+          <label className="text-xl p-2">Email:</label>
           <input
+						className="py-1 px-2 rounded-lg focus:border-blue-600"
             onChange={(event) =>
               setUser({ ...user, email: event.target.value })
             }
-            placeholder="email"
+            placeholder="Email"
           />
-          <label className="text-xl">Password:</label>
+          <label className="text-xl p-2">Password:</label>
           <input
+						className="py-1 px-2 rounded-lg focus:border-blue-400"
             onChange={(event) =>
               setUser({ ...user, password: event.target.value })
             }
-            placeholder="password"
+            placeholder="Password"
           />
+					<div className="pt-4 m-2">
           <button
             onClick={(event) => handleSubmit(event)}
-            className="bg-sky-500 text-white border-2 rounded-lg px-3 py-1 text-lg"
+            className=" bg-sky-500 text-white border-2 rounded-lg px-3 py-1 text-lg"
           >
             Submit
           </button>
+					</div>
         </form>
       </div>
 
-      <h3>New User ? </h3>
+      <h3 className="m-2 text-xl">New User ? </h3>
       <button
         onClick={handleClick}
         className="bg-sky-500 text-white border-2 rounded-lg px-3 py-1 text-lg"

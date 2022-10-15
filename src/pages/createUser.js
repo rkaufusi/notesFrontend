@@ -20,37 +20,41 @@ const CreateUser = () => {
   };
 
   return (
-    <div className="flex flex-col items-center">
-      <h3 className="text-stone-800 text-3xl m-3">Create User</h3>
+    <div className="flex flex-col items-center bg-gradient-to-r from-slate-400 h-screen">
+      <h3 className="text-stone-800 text-5xl m-3 p-3">Create User</h3>
       <div className="border-zinc-800 border-2 rounded-lg m-3">
         <form className="flex flex-col items-center py-2 px-5">
-          <label className="text-xl">First name:</label>
+          <label className="text-xl p-2">First name:</label>
           <input
+						className="py-1 px-2 rounded-lg focus:border-blue-600"
             onChange={(event) =>
               setUser({ ...user, firstname: event.target.value })
             }
-            placeholder="first name"
+            placeholder="First name"
           />
-          <label className="text-xl">Last name:</label>
+          <label className="text-xl p-2">Last name:</label>
           <input
+						className="py-1 px-2 rounded-lg focus:border-blue-600"
             onChange={(event) =>
               setUser({ ...user, lastname: event.target.value })
             }
-            placeholder="last name"
+            placeholder="Last name"
           />
-          <label className="text-xl">Email:</label>
+          <label className="text-xl p-2">Email:</label>
           <input
+						className="py-1 px-2 rounded-lg focus:border-blue-600"
             onChange={(event) =>
               setUser({ ...user, email: event.target.value })
             }
-            placeholder="email"
+            placeholder="Email"
           />
-          <label className="text-xl">Password:</label>
+          <label className="text-xl p-2">Password:</label>
           <input
+						className="py-1 px-2 rounded-lg focus:border-blue-600"
             onChange={(event) =>
               setUser({ ...user, password: event.target.value })
             }
-            placeholder="password"
+            placeholder="Password"
           />
           <button
             onClick={(event) => handleSubmit(event)}
