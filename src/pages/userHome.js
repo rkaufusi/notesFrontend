@@ -29,7 +29,6 @@ const UserHome = () => {
           return <Notes note={note} setFetch={setFetch}/>;
         })}
       </div>
-
     </div>
   );
 };
