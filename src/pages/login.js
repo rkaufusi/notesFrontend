@@ -43,8 +43,8 @@ const Login = () => {
     <div className="flex flex-col items-center bg-gradient-to-r from-slate-400 h-screen">
       <h3 className="text-stone-800 text-5xl m-3 p-3">Login</h3>
       <div className="border-zinc-800 border-2 rounded-lg m-3">
-        <form className="flex flex-col items-center py-2 px-5">
-          <label className="text-xl p-2">Email:</label>
+        <form className="flex flex-col items-start py-2 px-5">
+          <label className="text-xl py-2">Email:</label>
           <input
             className="py-1 px-2 rounded-lg focus:border-blue-600"
             onChange={(event) =>
@@ -52,18 +52,19 @@ const Login = () => {
             }
             placeholder="Email"
           />
-          <label className="text-xl p-2">Password:</label>
+          <label className="text-xl py-2">Password:</label>
           <div className="flex-col">
             <input
               type={isShown ? "text" : "password"}
-              className="w-[80%] py-1 px-2 rounded-lg focus:border-blue-400"
+              className="py-1 px-2 rounded-lg focus:border-blue-400"
               onChange={(event) =>
                 setUser({ ...user, password: event.target.value })
               }
               placeholder="Password"
             />
+						<button type="button" onClick={togglePassword} className="ml-2 text-xl">{isShown ? <BiShow/> : <BiHide/>}</button>
           </div>
-          <div className="pt-4 m-2">
+          <div className="pt-4 my-2">
             <button
               onClick={(event) => handleSubmit(event)}
               className=" bg-sky-500 text-white border-2 rounded-lg px-3 py-1 text-lg"
