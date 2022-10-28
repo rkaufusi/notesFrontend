@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { BiShow, BiHide } from "react-icons/bi";
 import axios from "axios";
@@ -8,6 +8,19 @@ const Login = () => {
     email: "",
     password: "",
   });
+
+	const userLoggedIn = async () => {
+		let userToken = localStorage.getItem("user");
+		const result = await axios.post("http://localhost:3500/verify", {
+			userToken: userToken,
+		});
+		navigate("/home");
+	};
+
+	useEffect(() => {
+		userLoggedIn();
+	}, []);
+
   const [isShown, setIsShown] = useState(false);
 
 	const togglePassword = () => {
@@ -17,6 +30,7 @@ const Login = () => {
   const handleClick = () => {
     navigate("./createuser");
   };
+
   const handleSubmit = async (event) => {
     try {
       event.preventDefault();
